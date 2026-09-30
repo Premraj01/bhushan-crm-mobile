@@ -4,15 +4,29 @@ import { api, ApiError, loadToken, setToken, setUnauthorizedHandler } from "./ap
 import { disconnectSocket } from "./socket";
 import { storage } from "./storage";
 
-export type Role = "Admin" | "Doctor" | "Reception";
+export type Role = "SuperAdmin" | "Doctor" | "Nurse" | "Receptionist";
 
 export const ROLE_LABELS: Record<Role, string> = {
-  Admin: "Super Admin",
+  SuperAdmin: "Super Admin",
   Doctor: "Doctor",
-  Reception: "Receptionist",
+  Nurse: "Nurse",
+  Receptionist: "Receptionist",
 };
 
-export type User = { id: string; name: string; email: string; role: Role; title?: string };
+export type User = {
+  id: string;
+  name: string;
+  email: string;
+  role: Role;
+  title?: string;
+  /** `"module.action"` grants from the server, e.g. `"photos.upload"` (see backend `src/auth/permissions.ts`). */
+  permissions: string[];
+};
+
+/** `can(user, "photos", "delete")` — hide actions the signed-in role isn't allowed. */
+export function can(user: Pick<User, "permissions"> | null | undefined, module: string, action: string): boolean {
+  return !!user?.permissions?.includes(`${module}.${action}`);
+}
 
 type AuthResponse = { accessToken: string; user: User };
 

@@ -1,4 +1,4 @@
-import { ChevronRight, Headset, Lock, Mail, ShieldCheck, Stethoscope, type LucideIcon } from "lucide-react-native";
+import { ChevronRight, Headset, HeartPulse, Lock, Mail, ShieldCheck, Stethoscope, type LucideIcon } from "lucide-react-native";
 import { useState } from "react";
 import { ActivityIndicator, Image, KeyboardAvoidingView, Platform, Pressable, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -9,9 +9,10 @@ import { fonts, panelShadow, radius, useTheme } from "@/theme";
 
 /** Same one-click accounts as the web sign-in (only work while the server has DEMO_LOGINS on). */
 const DEMO_ACCOUNTS: { role: Role; person: string; icon: LucideIcon }[] = [
-  { role: "Admin", person: "Dr. Bhushan Patil · full access", icon: ShieldCheck },
+  { role: "SuperAdmin", person: "Dr. Bhushan Patil · full access", icon: ShieldCheck },
   { role: "Doctor", person: "Dr. Sonal Desai · clinical", icon: Stethoscope },
-  { role: "Reception", person: "Priya More · front desk", icon: Headset },
+  { role: "Nurse", person: "Meera Jadhav · patient care", icon: HeartPulse },
+  { role: "Receptionist", person: "Priya More · front desk", icon: Headset },
 ];
 
 export default function SignIn() {
