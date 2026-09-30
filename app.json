@@ -1,0 +1,54 @@
+{
+  "expo": {
+    "name": "Dr. Bhushan’s CRM",
+    "slug": "bhushan-crm-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/brand/logo-mark.png",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "clinic.drbhushan.crm"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#FAFCFA",
+        "foregroundImage": "./assets/brand/logo-mark.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package": "clinic.drbhushan.crm"
+    },
+    "web": {
+      "favicon": "./assets/brand/logo-mark.png",
+      "output": "single"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      "expo-font",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/brand/logo-mark.png",
+          "imageWidth": 140,
+          "backgroundColor": "#f8fcf9",
+          "dark": {
+            "backgroundColor": "#112424"
+          }
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "cameraPermission": "The camera is used to take patient progress photos and scan signed consent forms.",
+          "photosPermission": "Choose patient photos from your library to add them to their record.",
+          "microphonePermission": false
+        }
+      ]
+    ],
+    "scheme": "bhushancrm",
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
