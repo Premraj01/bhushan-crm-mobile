@@ -23,7 +23,7 @@ export default function AddPhoto() {
   const upload = useUploadPhoto(id);
   const [photo, setPhoto] = useState<Picked | null>(null);
   const [angle, setAngle] = useState<PhotoUpload["angle"]>("Frontal hairline");
-  const [milestone, setMilestone] = useState<PhotoUpload["milestone"]>("Pre-operative");
+  const [milestone, setMilestone] = useState<PhotoUpload["milestone"]>("Initial assessment");
   const [note, setNote] = useState("");
 
   async function pick(source: "camera" | "library") {
