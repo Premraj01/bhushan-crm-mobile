@@ -17,8 +17,9 @@ import {
   UserRound,
   UsersRound,
   X,
+  type LucideIcon,
 } from "lucide-react";
-import { type FormEvent, type LucideIcon, useState } from "react";
+import { type FormEvent, useState } from "react";
 
 import logoMark from "@/assets/logo-mark.png";
 import authDoodle from "@/assets/auth-doodle.jpg";
