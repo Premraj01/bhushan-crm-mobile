@@ -73,6 +73,8 @@
   body { margin: 0; min-width: 320px; background: var(--background); color: var(--foreground); }
   h1, h2, h3, strong { font-family: var(--font-heading); letter-spacing: 0; }
   button, input { font: inherit; }
+  button { cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
 }
 
 .auth-screen { min-height: 100svh; background: var(--card); }
@@ -94,10 +96,14 @@
 .login-form input { height: 50px; border-radius: 6px; background: var(--card); padding-inline: 15px; box-shadow: none; }
 .password-label { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; }
 .password-label button { border: 0; background: none; color: var(--primary); font-size: 11px; font-weight: 600; cursor: pointer; }
+.password-label button:hover { text-decoration: underline; }
+.password-label button:active { color: var(--success); }
 .password-field { position: relative; }
 .password-field input { padding-right: 52px; }
 .password-field > button { position: absolute; top: 7px; right: 7px; color: var(--muted-foreground); }
 .login-button { height: 52px; margin-top: 16px; border-radius: 6px; font-family: var(--font-heading); font-size: 13px; box-shadow: 0 8px 22px oklch(.31 .054 200 / .18); }
+.login-button:hover { box-shadow: 0 10px 26px oklch(.31 .054 200 / .22); }
+.login-button:active { box-shadow: 0 4px 12px oklch(.31 .054 200 / .16); }
 .login-button svg { margin-left: auto; }
 .secure-note { display: flex; justify-content: center; align-items: center; gap: 7px; margin: 28px 0 0; color: var(--muted-foreground); font-size: 10px; }
 .secure-note span { width: 6px; height: 6px; border-radius: 50%; background: var(--success); box-shadow: 0 0 0 3px var(--success-soft); }
@@ -118,6 +124,8 @@
 .drawer-nav { display: grid; gap: 4px; padding: 0 12px; }
 .drawer-nav button, .logout-button { height: 46px; justify-content: flex-start; color: color-mix(in oklab, var(--primary-foreground) 75%, transparent); }
 .drawer-nav button span { flex: 1; text-align: left; }
+.drawer-nav button:hover, .logout-button:hover { background: color-mix(in oklab, var(--primary-foreground) 8%, transparent); color: var(--primary-foreground); }
+.drawer-nav button:active, .logout-button:active { background: color-mix(in oklab, var(--primary-foreground) 14%, transparent); color: var(--primary-foreground); }
 .drawer-nav button.active { background: color-mix(in oklab, var(--primary-foreground) 13%, transparent); color: var(--primary-foreground); }
 .drawer-profile { display: flex; align-items: center; gap: 11px; margin: auto 16px 8px; padding: 14px; border: 1px solid color-mix(in oklab, var(--primary-foreground) 14%, transparent); border-radius: 6px; }
 .drawer-profile > span { display: grid; width: 38px; height: 38px; place-items: center; border-radius: 5px; background: var(--accent); color: var(--accent-foreground); font: 700 11px var(--font-heading); }
@@ -149,9 +157,14 @@
 .quick-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
 .quick-grid button { height: auto; min-height: 78px; flex-direction: column; gap: 7px; padding: 8px 4px; border-radius: 6px; background: var(--card); font-size: 9px; white-space: normal; line-height: 1.2; box-shadow: var(--shadow-panel); }
 .quick-grid button > span { display: grid; width: 30px; height: 30px; place-items: center; border-radius: 5px; background: var(--secondary); color: var(--primary); }
+.quick-grid button:hover { border-color: var(--primary); background: color-mix(in srgb, var(--teal-soft) 45%, var(--card)); color: var(--primary); }
+.quick-grid button:active { border-color: var(--primary); background: var(--teal-soft); color: var(--primary); }
 .appointment-list, .recent-leads { overflow: hidden; border: 1px solid var(--border); border-radius: 6px; background: var(--card); box-shadow: var(--shadow-panel); }
 .content-panel > .section-title { padding: 0 2px; }
 .appointment { display: grid; grid-template-columns: 44px 36px minmax(0, 1fr) 32px; align-items: center; gap: 10px; min-height: 76px; padding: 0 10px; border-bottom: 1px solid var(--border); }
+.appointment { transition: background-color .18s ease; }
+.appointment:hover { background: var(--teal-soft); }
+.appointment:active { background: color-mix(in oklab, var(--teal-soft) 75%, var(--primary)); }
 .appointment:last-child { border: 0; }
 .appointment time { color: var(--primary); font: 700 12px var(--font-heading); }
 .appointment time small { display: block; margin-top: 2px; color: var(--muted-foreground); font: 600 8px var(--font-body); }
@@ -165,6 +178,9 @@
 .recent-leads { padding: 15px; }
 .recent-leads > .section-title { margin-bottom: 5px; }
 .lead-row { display: grid; grid-template-columns: 36px minmax(0,1fr) auto; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+.lead-row { transition: background-color .18s ease; }
+.lead-row:hover { background: color-mix(in oklab, var(--teal-soft) 50%, transparent); }
+.lead-row:active { background: var(--teal-soft); }
 .lead-row:last-child { border: 0; padding-bottom: 2px; }
 .lead-row time { color: var(--muted-foreground); font-size: 8px; }
 .empty-view { display: grid; min-height: calc(100svh - 120px); place-content: center; justify-items: center; text-align: center; }
